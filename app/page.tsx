@@ -1,16 +1,21 @@
-import ArticleItemList from "@/components/ArticleListItem"
-import { getCategorisedArticles } from "@/lib/articles"
+import ArticleItemList from "@/components/ArticleListItem";
+import { getCategorisedArticles } from "@/lib/articles";
+import { FaTwitter } from "react-icons/fa";
 
 const HomePage = () => {
-  const articles = getCategorisedArticles()
+  const articles = getCategorisedArticles();
 
-  console.log(articles)
   return (
-    <section className="mx-auto w-11/12 md:w-1/2 mt-20 flex flex-col gap-16 mb-20">
-      <header className="font-cormorantGaramond font-light text-6xl text-neutral-900 text-center">
+    <section className="mx-auto w-11/12 md:w-1/2 mt-10 flex flex-col gap-12 mb-10">
+      <header className="font-poppins font-light text-4xl text-center gap-2">
         <h1>Jishan Ahmed</h1>
+        <div className="flex gap-1 items-center justify-center">
+          <p className="text-xl mr-6">Software Engineer</p>
+          <FaTwitter size={20} />
+          <p className="text-xl">@JishanCodes</p>
+        </div>
       </header>
-      <section className="md:grid md:grid-cols-2 flex flex-col gap-10">
+      <section className="md:grid md:grid-cols-3 flex flex-col gap-10">
         {articles !== null &&
           Object.keys(articles).map((article) => (
             <ArticleItemList
@@ -21,7 +26,7 @@ const HomePage = () => {
           ))}
       </section>
     </section>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
